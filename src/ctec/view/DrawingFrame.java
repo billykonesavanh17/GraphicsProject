@@ -1,15 +1,14 @@
 package ctec.view;
 
 import javax.swing.JFrame;
-
 import ctec.controller.GraphicsController;
 
-public class ShapeFrame extends JFrame
+public class DrawingFrame extends JFrame
 {
 	private GraphicsController baseController;
 	private DrawingPanel basePanel;
 	
-	public ShapeFrame(GraphicsController baseController)
+	public DrawingFrame(GraphicsController baseController)
 	{
 		this.baseController = baseController;
 		basePanel = new DrawingPanel(baseController);
