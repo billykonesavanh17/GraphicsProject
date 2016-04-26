@@ -29,6 +29,7 @@ public class DrawingPanel extends JPanel
 	public DrawingPanel(GraphicsController baseController)
 	{
 		this.baseController = baseController;
+		shapePanel =new ShapePanel();
 		rectangleList = new ArrayList<Rectangle>();
 		baseLayout = new SpringLayout();
 		drawCircleButton = new JButton("Circle");
@@ -58,12 +59,7 @@ public class DrawingPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				int xPosition = (int)(Math.random() * 600);
-				int yPosition = (int)(Math.random() * 600);
-				int width = (int)(Math.random() * 50);
-				int height = (int)(Math.random() * 50);
-				
-				rectangleList.add(new Rectangle(xPosition, yPosition, width, height));
+				shapePanel.addTriangle();
 				repaint();
 			}
 		});
