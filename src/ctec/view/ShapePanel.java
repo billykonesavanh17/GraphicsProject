@@ -46,10 +46,10 @@ public class ShapePanel extends JPanel
 	{
 		int xPosition = (int)(Math.random() * getWidth());
 		int yPosition = (int)(Math.random() * getHeight());
-		int width = (int)(xPosition * 0.5 );
-		int height = (int)(xPosition * 0.5);
+		int width = (int)(Math.random() * 200 );
+
 		
-		Rectangle square = new Rectangle(xPosition, yPosition, width, height);
+		Rectangle square = new Rectangle(xPosition, yPosition, width, width);
 		squareList.add(square);
 	}
 	
@@ -57,10 +57,10 @@ public class ShapePanel extends JPanel
 	{
 		int xPosition = (int)(Math.random() * 150);
 		int yPosition = (int)(Math.random() * 100);
-		int width = (int)(yPosition * 0.5);
-		int height = (int)(yPosition * 0.5);
+		int width = (int)(Math.random() * 250);
 		
-		Ellipse2D circle = new Ellipse2D.Double(xPosition, yPosition, width, height);
+		
+		Ellipse2D circle = new Ellipse2D.Double(xPosition, yPosition, width, width);
 		circleList.add(circle);
 	}
 	
@@ -201,8 +201,9 @@ public class ShapePanel extends JPanel
 			int blue = (int)(Math.random() * 256);
 			int green = (int)(Math.random() * 256);
 			int penSize = (int)(Math.random() * 10) + 3;
+			int alpha = (int)(Math.random() * 255);
 			
-			mainGraphics.setColor(new Color(red, green, blue));
+			mainGraphics.setColor(new Color(red, green, blue, alpha));
 			mainGraphics.setStroke(new BasicStroke(penSize));
 			if(currentShape instanceof Polygon)
 			{
