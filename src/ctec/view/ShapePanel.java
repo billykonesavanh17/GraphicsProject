@@ -55,7 +55,13 @@ public class ShapePanel extends JPanel
 	
 	public void addCircle()
 	{
+		int xPosition = (int)(Math.random() * 150);
+		int yPosition = (int)(Math.random() * 100);
+		int width = (int)(yPosition * 0.5);
+		int height = (int)(yPosition * 0.5);
 		
+		Ellipse2D circle = new Ellipse2D.Double(xPosition, yPosition, width, height);
+		circleList.add(circle);
 	}
 	
 	public void addEllipse()
@@ -156,6 +162,17 @@ public class ShapePanel extends JPanel
 		}
 		
 		for(Rectangle current : squareList)
+		{
+			int red = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			int penSize = (int)(Math.random() * 10) + 3;
+			mainGraphics.setColor(new Color(red, green, blue));
+			mainGraphics.setStroke(new BasicStroke(penSize));
+			mainGraphics.draw(current);
+		}
+		
+		for(Ellipse2D current : circleList)
 		{
 			int red = (int)(Math.random() * 256);
 			int blue = (int)(Math.random() * 256);

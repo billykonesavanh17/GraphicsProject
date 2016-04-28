@@ -139,6 +139,15 @@ public class DrawingPanel extends JPanel
 				repaint();
 			}
 		});
+		
+		drawCircleButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				shapePanel.addCircle();
+				repaint();
+			}
+		});
 	}
 	
 	@Override
