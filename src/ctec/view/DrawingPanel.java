@@ -22,7 +22,7 @@ public class DrawingPanel extends JPanel
 	private JButton drawEclipseButton;
 	private JButton drawRectangleButton;
 	private JButton drawTriangleButton;
-	private JButton drawPentagonButton;
+	private JButton drawPolygonButton;
 	private SpringLayout baseLayout;
 	private ArrayList<Rectangle> rectangleList;
 	
@@ -34,7 +34,7 @@ public class DrawingPanel extends JPanel
 		drawCircleButton = new JButton("Circle");
 		drawEclipseButton = new JButton("Eclipse");
 		drawTriangleButton = new JButton("Triangle");
-		drawPentagonButton = new JButton("Pentagon");
+		drawPolygonButton = new JButton("Polygon");
 		
 		setupPanel();
 		setupLayout();
@@ -47,19 +47,21 @@ public class DrawingPanel extends JPanel
 		drawRectangleButton = new JButton("Rectangle");
 		this.add(drawRectangleButton);
 		shapePanel = new ShapePanel();
-
 		shapePanel.setBackground(Color.WHITE);
 		this.add(shapePanel);
+		this.add(drawPolygonButton);
 	}
 	
 	public void setupLayout()
 	{
-		baseLayout.putConstraint(SpringLayout.NORTH, shapePanel, 33, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.WEST, shapePanel, 117, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, shapePanel, -27, SpringLayout.NORTH, drawRectangleButton);
 		baseLayout.putConstraint(SpringLayout.EAST, shapePanel, -103, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, drawPolygonButton, 0, SpringLayout.NORTH, drawRectangleButton);
+		baseLayout.putConstraint(SpringLayout.EAST, drawPolygonButton, -70, SpringLayout.WEST, drawRectangleButton);
 		baseLayout.putConstraint(SpringLayout.SOUTH, drawRectangleButton, -10, SpringLayout.SOUTH, this);
-		baseLayout.putConstraint(SpringLayout.EAST, drawRectangleButton, -154, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.EAST, drawRectangleButton, -68, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, shapePanel, 33, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, shapePanel, -27, SpringLayout.NORTH, drawRectangleButton);
 	}
 	
 	public void setupListeners()
@@ -69,6 +71,15 @@ public class DrawingPanel extends JPanel
 			public void actionPerformed(ActionEvent click)
 			{
 				shapePanel.addTriangle();
+				repaint();
+			}
+		});
+		
+		drawPolygonButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				shapePanel.addPolygon();
 				repaint();
 			}
 		});
