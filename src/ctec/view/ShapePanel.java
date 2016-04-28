@@ -46,7 +46,13 @@ public class ShapePanel extends JPanel
 	
 	public void addEllipse()
 	{
+		int xPosition = (int)(Math.random() * 150);
+		int yPosition = (int)(Math.random() * 100);
+		int width = (int)(Math.random() * 200);
+		int height = (int)(Math.random() * 100);
 		
+		Ellipse2D currentEllipse = new Ellipse2D.Double(xPosition, yPosition, width, height);
+		ellipseList.add(currentEllipse);
 	}
 	
 	public void addTriangle()
@@ -58,7 +64,6 @@ public class ShapePanel extends JPanel
 		yPoints = new int [] {(int)(Math.random() * 250), (int)(Math.random() * 250), (int)(Math.random() * 250)};
 		
 		Polygon triangle = new Polygon(xPoints, yPoints, 3);
-		
 		triangleList.add(triangle);
 	}
 	
@@ -111,12 +116,30 @@ public class ShapePanel extends JPanel
 			mainGraphics.draw(current);
 			
 		}
+		
+		for(Ellipse2D current : ellipseList)
+		{
+			int red = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+				
+			int penSize = (int)(Math.random() * 10) + 3;
+			mainGraphics.setColor(new Color(red, green, blue));	
+			mainGraphics.setStroke(new BasicStroke(penSize));
+			mainGraphics.draw(current);
+			
+		}
 	
 	}
 	
 	public void clear()
 	{
-		
+		polygonList.clear();
+		triangleList.clear();
+		circleList.clear();
+		squareList.clear();
+		rectangleList.clear();
+		ellipseList.clear();
 	}
 
 }
