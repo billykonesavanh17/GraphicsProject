@@ -70,8 +70,8 @@ public class ShapePanel extends JPanel
 		
 		for(int sides = 0; sides < numberOfSides; sides++)
 		{
-			xPoints[sides] = (int)(Math.random()* 300);
-			yPoints[sides] = (int)(Math.random()* 300);
+			xPoints[sides] = (int)(Math.random()* 2000);
+			yPoints[sides] = (int)(Math.random()* 2000);
 		}
 		
 		Polygon myPolygon = new Polygon(xPoints, yPoints, numberOfSides);
@@ -97,6 +97,17 @@ public class ShapePanel extends JPanel
 			mainGraphics.setStroke(new BasicStroke(penSize));
 			
 			mainGraphics.draw(currentTriangle);
+		}
+		
+		for(Polygon current : polygonList)
+		{
+			int red = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+				
+			mainGraphics.setColor(new Color(red, green, blue));	
+			mainGraphics.fill(current);
+			
 		}
 	
 	}
