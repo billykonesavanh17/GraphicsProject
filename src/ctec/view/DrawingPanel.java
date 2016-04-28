@@ -155,9 +155,6 @@ public class DrawingPanel extends JPanel
 	{
 		super.paintComponent(currentGraphics);
 		Graphics2D mainGraphics = (Graphics2D)currentGraphics;
-		mainGraphics.setColor(Color.cyan);
-		mainGraphics.setStroke(new BasicStroke(15));
-		mainGraphics.draw(new Rectangle(90,10,20,40));
 		
 		for(Rectangle current : rectangleList)
 		{

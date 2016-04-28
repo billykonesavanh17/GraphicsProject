@@ -182,7 +182,37 @@ public class ShapePanel extends JPanel
 			mainGraphics.setStroke(new BasicStroke(penSize));
 			mainGraphics.draw(current);
 		}
+		
+		//Cleaner code, but same code.
+		drawShapes(mainGraphics, circleList);
+		drawShapes(mainGraphics, ellipseList);
+		drawShapes(mainGraphics, squareList);
+		drawShapes(mainGraphics, rectangleList);
+		drawShapes(mainGraphics, triangleList);
+		drawShapes(mainGraphics, polygonList);
+	}
 	
+	private void drawShapes(Graphics2D mainGraphics, ArrayList shapeList)
+	{
+		for(Object currentShape : shapeList)
+		{
+			currentShape = (Shape) currentShape;
+			int red = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			int penSize = (int)(Math.random() * 10) + 3;
+			
+			mainGraphics.setColor(new Color(red, green, blue));
+			mainGraphics.setStroke(new BasicStroke(penSize));
+			if(currentShape instanceof Polygon)
+			{
+				mainGraphics.draw((Shape)currentShape);
+			}
+			else
+			{
+				mainGraphics.fill((Shape)currentShape);
+			}
+		}
 	}
 	
 	public void clear()
