@@ -115,6 +115,15 @@ public class DrawingPanel extends JPanel
 				repaint();
 			}
 		});
+		
+		drawRectangleButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				shapePanel.addRectangle();
+				repaint();
+			}
+		});
 	}
 	
 	@Override

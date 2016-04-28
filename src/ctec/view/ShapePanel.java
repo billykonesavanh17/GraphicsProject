@@ -3,11 +3,12 @@ package ctec.view;
 import javax.swing.JPanel;
 
 import java.util.ArrayList;
+import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Polygon;
 import java.awt.Rectangle;
 import java.awt.Graphics;
 import java.awt.geom.Ellipse2D;
-import java.awt.Graphics2D;
 import java.awt.*;
 
 public class ShapePanel extends JPanel
@@ -31,7 +32,14 @@ public class ShapePanel extends JPanel
 	
 	public void addRectangle()
 	{
+		int xPosition = (int)(Math.random() * getWidth());
+		int yPosition = (int)(Math.random() * getWidth());
+		int width = (int)(Math.random() * 100);
+		int height = (int)(Math.random() * 100);
 		
+		Rectangle rectangle = new Rectangle(xPosition, yPosition, width, height);
+		rectangleList.add(rectangle);
+				
 	}
 	
 	public void addSquare()
@@ -128,6 +136,17 @@ public class ShapePanel extends JPanel
 			mainGraphics.setStroke(new BasicStroke(penSize));
 			mainGraphics.draw(current);
 			
+		}
+		
+		for(Rectangle current : rectangleList)
+		{
+			int red = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			int penSize = (int)(Math.random() * 10) + 3;
+			mainGraphics.setColor(new Color(red, green, blue));
+			mainGraphics.setStroke(new BasicStroke(penSize));
+			mainGraphics.draw(current);
 		}
 	
 	}
