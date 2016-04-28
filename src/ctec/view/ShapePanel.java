@@ -33,7 +33,7 @@ public class ShapePanel extends JPanel
 	public void addRectangle()
 	{
 		int xPosition = (int)(Math.random() * getWidth());
-		int yPosition = (int)(Math.random() * getWidth());
+		int yPosition = (int)(Math.random() * getHeight());
 		int width = (int)(Math.random() * 100);
 		int height = (int)(Math.random() * 100);
 		
@@ -44,7 +44,13 @@ public class ShapePanel extends JPanel
 	
 	public void addSquare()
 	{
+		int xPosition = (int)(Math.random() * getWidth());
+		int yPosition = (int)(Math.random() * getHeight());
+		int width = (int)(xPosition * 0.5 );
+		int height = (int)(xPosition * 0.5);
 		
+		Rectangle square = new Rectangle(xPosition, yPosition, width, height);
+		squareList.add(square);
 	}
 	
 	public void addCircle()
@@ -139,6 +145,17 @@ public class ShapePanel extends JPanel
 		}
 		
 		for(Rectangle current : rectangleList)
+		{
+			int red = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			int penSize = (int)(Math.random() * 10) + 3;
+			mainGraphics.setColor(new Color(red, green, blue));
+			mainGraphics.setStroke(new BasicStroke(penSize));
+			mainGraphics.draw(current);
+		}
+		
+		for(Rectangle current : squareList)
 		{
 			int red = (int)(Math.random() * 256);
 			int blue = (int)(Math.random() * 256);
