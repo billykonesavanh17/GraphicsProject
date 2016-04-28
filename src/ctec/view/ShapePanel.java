@@ -1,11 +1,14 @@
 package ctec.view;
 
 import javax.swing.JPanel;
+
 import java.util.ArrayList;
 import java.awt.Polygon;
 import java.awt.Rectangle;
 import java.awt.Graphics;
 import java.awt.geom.Ellipse2D;
+import java.awt.Graphics2D;
+import java.awt.*;
 
 public class ShapePanel extends JPanel
 {	
@@ -80,8 +83,27 @@ public class ShapePanel extends JPanel
 	protected void paintComponent(Graphics currentGraphics)
 	{
 		super.paintComponent(currentGraphics);
+		Graphics2D mainGraphics = (Graphics2D) currentGraphics;
 		//Loops to do lists.
+		
+		for(Polygon currentTriangle : triangleList)
+		{
+			int red = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			
+			int penSize = (int)(Math.random() * 10) + 3;
+			mainGraphics.setColor(new Color(red, green, blue));
+			mainGraphics.setStroke(new BasicStroke(penSize));
+			
+			mainGraphics.draw(currentTriangle);
+		}
 	
+	}
+	
+	public void clear()
+	{
+		
 	}
 
 }

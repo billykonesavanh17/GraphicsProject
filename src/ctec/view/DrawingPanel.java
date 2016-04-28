@@ -46,6 +46,7 @@ public class DrawingPanel extends JPanel
 	public void setupPanel()
 	{
 		this.add(drawRectangleButton);
+		this.add(shapePanel);
 	}
 	
 	public void setupLayout()
