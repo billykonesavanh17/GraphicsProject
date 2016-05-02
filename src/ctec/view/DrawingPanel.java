@@ -24,6 +24,7 @@ public class DrawingPanel extends JPanel
 	private JButton drawRectangleButton;
 	private JButton drawTriangleButton;
 	private JButton drawPolygonButton;
+	private JButton drawGraphButton;
 	private JButton clearButton;
 	private SpringLayout baseLayout;
 	
@@ -40,6 +41,7 @@ public class DrawingPanel extends JPanel
 		drawPolygonButton = new JButton("Polygon");
 		clearButton = new JButton("clear");
 		drawSquareButton = new JButton("Square");
+		drawGraphButton = new JButton("Graph");
 		
 		setupPanel();
 		setupLayout();
@@ -60,6 +62,7 @@ public class DrawingPanel extends JPanel
 		this.add(drawTriangleButton);
 		this.add(drawCircleButton);
 		this.add(drawSquareButton);
+		this.add(drawGraphButton);
 	}
 	
 	public void setupLayout()
@@ -82,6 +85,8 @@ public class DrawingPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.WEST, drawEllipseButton, 104, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.WEST, drawSquareButton, 2, SpringLayout.EAST, drawPolygonButton);
 		baseLayout.putConstraint(SpringLayout.NORTH, drawSquareButton, 6, SpringLayout.SOUTH, drawRectangleButton);
+		baseLayout.putConstraint(SpringLayout.NORTH, drawGraphButton, 10, SpringLayout.SOUTH, drawPolygonButton);
+		baseLayout.putConstraint(SpringLayout.WEST, drawGraphButton, 4, SpringLayout.EAST, drawEllipseButton);
 	}
 	
 	public void setupListeners()
@@ -141,6 +146,15 @@ public class DrawingPanel extends JPanel
 		});
 		
 		drawCircleButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				shapePanel.addCircle();
+				repaint();
+			}
+		});
+		
+		drawGraphButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
