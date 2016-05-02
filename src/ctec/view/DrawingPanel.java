@@ -13,6 +13,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+import ctec.view.GraphPanel;
 
 public class DrawingPanel extends JPanel
 {
@@ -158,7 +159,7 @@ public class DrawingPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				shapePanel.addCircle();
+				
 				repaint();
 			}
 		});

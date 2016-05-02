@@ -2,7 +2,10 @@ package ctec.view;
 
 import javax.swing.JPanel;
 
+import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
@@ -24,9 +27,9 @@ public class GraphPanel extends JPanel
 		{
 			//Draw a rectangle for each value in the array
 			//Height constant, width value array
-			int xPosition = (int)(Math.random() * getWidth());
-			int yPosition = (int)(Math.random() * getHeight());
-			int width = (int)(Math.random() * 100);
+			int xPosition = (int)(0);
+			int yPosition = (int)(getHeight());
+			int width = (int)(index * 100);
 			int height = (int)(100);
 			
 			Rectangle rectangle = new Rectangle(xPosition, yPosition, width, height);
