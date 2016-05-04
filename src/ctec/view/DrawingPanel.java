@@ -26,7 +26,6 @@ public class DrawingPanel extends JPanel
 	private JButton drawRectangleButton;
 	private JButton drawTriangleButton;
 	private JButton drawPolygonButton;
-	private JButton drawGraphButton;
 	private JButton clearButton;
 	private SpringLayout baseLayout;
 	
@@ -43,8 +42,6 @@ public class DrawingPanel extends JPanel
 		drawPolygonButton = new JButton("Polygon");
 		clearButton = new JButton("clear");
 		drawSquareButton = new JButton("Square");
-		drawGraphButton = new JButton("Graph");
-
 		
 		setupPanel();
 		setupLayout();
@@ -65,7 +62,6 @@ public class DrawingPanel extends JPanel
 		this.add(drawTriangleButton);
 		this.add(drawCircleButton);
 		this.add(drawSquareButton);
-		this.add(drawGraphButton);
 		graphPanel = new GraphPanel();
 		graphPanel.setBackground(Color.GRAY);
 		this.add(graphPanel);
@@ -86,11 +82,9 @@ public class DrawingPanel extends JPanel
 	baseLayout.putConstraint(SpringLayout.EAST, shapePanel, -10, SpringLayout.EAST, this);
 	baseLayout.putConstraint(SpringLayout.SOUTH, shapePanel, -114, SpringLayout.SOUTH, this);
 	baseLayout.putConstraint(SpringLayout.NORTH, shapePanel, 10, SpringLayout.NORTH, this);
-	baseLayout.putConstraint(SpringLayout.NORTH, drawGraphButton, 0, SpringLayout.NORTH, drawRectangleButton);
 	baseLayout.putConstraint(SpringLayout.NORTH, drawCircleButton, 0, SpringLayout.NORTH, drawRectangleButton);
 	baseLayout.putConstraint(SpringLayout.WEST, drawCircleButton, 6, SpringLayout.EAST, drawRectangleButton);
 	baseLayout.putConstraint(SpringLayout.NORTH, drawTriangleButton, 6, SpringLayout.SOUTH, drawRectangleButton);
-	baseLayout.putConstraint(SpringLayout.WEST, drawGraphButton, 10, SpringLayout.WEST, this);
 	baseLayout.putConstraint(SpringLayout.NORTH, drawSquareButton, 0, SpringLayout.NORTH, drawTriangleButton);
 	baseLayout.putConstraint(SpringLayout.WEST, drawSquareButton, 0, SpringLayout.WEST, drawPolygonButton);
 	baseLayout.putConstraint(SpringLayout.NORTH, clearButton, 0, SpringLayout.NORTH, drawPolygonButton);
@@ -164,13 +158,6 @@ public class DrawingPanel extends JPanel
 			}
 		});
 		
-		drawGraphButton.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent click)
-			{
-				
-			}
-		});
 	}
 	
 	@Override
